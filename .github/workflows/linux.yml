@@ -1,6 +1,7 @@
 name: Linux Build
 
-on: [push, pull_request]
+on:
+  workflow_dispatch:
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
@@ -38,4 +39,10 @@ jobs:
 
     - name: Build HandBrake Linux
       run: |
-         ./configure --enable-qsv --enable-vce --enable-nvenc --enable-nvdec --launch-jobs=0 --launch
+         ./configure --enable-vaapi --launch-jobs=0 --launch
+
+    - name: Upload Package
+      uses: actions/upload-artifact@v5
+      with:
+        name: HandBrake
+        path: .build/

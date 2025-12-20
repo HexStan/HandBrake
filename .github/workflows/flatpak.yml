@@ -1,6 +1,7 @@
 name: Flatpak Build
 
-on: [push, pull_request]
+on:
+  workflow_dispatch:
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
@@ -22,7 +23,7 @@ jobs:
    
     - name: Build HandBrake
       run: |
-        ./configure --launch-jobs=1 --flatpak --enable-qsv --enable-vce --enable-nvdec --enable-libdovi
+        ./configure --launch-jobs=1 --flatpak --enable-vaapi --enable-libdovi
         cd build
         nice make pkg.create.gui.flatpak
 
