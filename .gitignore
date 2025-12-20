@@ -16,6 +16,9 @@ win/CS/HandBrakeAppX/BundleArtifacts/**/*
 *.ide
 win/CS/*.DotSettings
 
+# IDEA
+.idea/
+
 # Xcode
 macosx/**/xcuserdata
 macosx/**/xcshareddata/IDEWorkspaceChecks.plist
