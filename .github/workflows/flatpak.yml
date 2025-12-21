@@ -23,7 +23,7 @@ jobs:
    
     - name: Build HandBrake
       run: |
-        ./configure --launch-jobs=1 --flatpak --enable-vaapi --enable-libdovi
+        ./configure --launch-jobs=1 --flatpak --enable-vaapi --enable-vce --enable-libdovi
         cd build
         nice make pkg.create.gui.flatpak
 

@@ -39,7 +39,7 @@ jobs:
 
     - name: Build HandBrake Linux
       run: |
-         ./configure --enable-vaapi --launch-jobs=0 --launch
+         ./configure --enable-vaapi --enable-vce --launch-jobs=0 --launch
 
     - name: Upload Package
       uses: actions/upload-artifact@v5
