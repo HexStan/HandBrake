@@ -1020,7 +1020,7 @@ int encavcodecInit( hb_work_object_t * w, hb_job_t * job )
     else if (hb_video_encoder_is_vaapi(job->vcodec))
     {
         // FIXME: Validate whether VAAPI 'B frames are supported (works on AMD NAVI)
-        // av_dict_set(&av_opts, "b_depth", "2", 0);
+        av_dict_set(&av_opts, "b_depth", "2", 0);
 
         // Set profile and level
         if (job->encoder_profile != NULL && *job->encoder_profile)
